@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glenwood Parking Contract Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <h1>Glenwood Parking Contract Calculator</h1>
+        <form id="calculator-form">
+            <label for="monthly-rate">Monthly Rate ($):</label>
+            <input type="number" id="monthly-rate" step="0.01" min="0" required>
+
+            <label for="last-month-rate">Last Month Rate ($):</label>
+            <input type="number" id="last-month-rate" step="0.01" min="0" required>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" required>
+
+            <label>
+                <input type="checkbox" id="briar-hill-tax"> Excel - Briar Hill Only (10.375% tax)
+            </label>
+
+            <label>
+                <input type="checkbox" id="oversized-84" class="oversized"> Oversized Vehicle (+$84.48)
+            </label>
+            <label>
+                <input type="checkbox" id="oversized-105" class="oversized"> Oversized Vehicle (+$105.60)
+            </label>
+
+            <label>
+                <input type="checkbox" id="exclude-last-month"> Do not include Last Month Rate
+            </label>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        <table id="result-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Tax</th>
+                    <th>With Tax</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total with Tax</td>
+                    <td id="total-with-tax">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
